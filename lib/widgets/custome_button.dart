@@ -8,9 +8,11 @@ class CustomeButton extends StatelessWidget {
   final Color foregroundColor;
   final Color borderColor;
   final TextStyle textStyle;
-  final IconData? icon;
-  final Color? iconColor;
-  final double verticalPadding;
+
+  final Widget? leftIcon;   
+  final Widget? rightIcon; 
+
+  final bool isMax;
 
   const CustomeButton({
     super.key,
@@ -20,9 +22,9 @@ class CustomeButton extends StatelessWidget {
     required this.foregroundColor,
     required this.borderColor,
     required this.textStyle,
-    this.icon,
-    this.iconColor,
-    this.verticalPadding = 16,
+    required this.isMax,
+    this.leftIcon,
+    this.rightIcon,
   });
 
   @override
@@ -35,20 +37,28 @@ class CustomeButton extends StatelessWidget {
           width: 1,
           color: borderColor,
         ),
-        padding: EdgeInsets.symmetric(vertical: verticalPadding),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
+        padding: EdgeInsets.symmetric(
+          vertical: context.h * 0.03,
+        ),
       ),
       onPressed: onPressed,
       child: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: isMax ? MainAxisSize.max : MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          if (leftIcon != null) ...[
+            leftIcon!,
+            SizedBox(width: context.w * 0.02),
+          ],
+
           Text(text, style: textStyle),
-          if (icon != null) ...[
-            SizedBox(width: context.w*0.01),
-            Icon(
-              icon,
-              color: iconColor ?? foregroundColor,
-            ),
+
+          if (rightIcon != null) ...[
+            SizedBox(width: context.w * 0.02),
+            rightIcon!,
           ],
         ],
       ),

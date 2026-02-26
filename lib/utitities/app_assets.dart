@@ -35,4 +35,5 @@ class AppAssets {
   static const String watchNow = 'lib/assets/images/watchNow.png';
   static const String watch = 'lib/assets/images/watch.png';
   static const String popcorn = 'lib/assets/images/popcorn.png';
+  static const String google = 'lib/assets/images/google.png';
 }

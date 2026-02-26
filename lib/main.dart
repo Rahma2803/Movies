@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Movies', 
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.homeRouteName,
+      initialRoute: AppRoutes.signInRouteName,
       routes: {
         AppRoutes.homeRouteName: (context) => HomeScreen(),
         AppRoutes.signInRouteName: (context) => SignIn(),

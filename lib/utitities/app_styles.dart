@@ -24,6 +24,11 @@ class AppStyles {
     static final robotoRegular16Yellow = robotoRegular16.copyWith(color: AppColors.yellow);
     static final robotoRegular16Grey = robotoRegular16.copyWith(color: AppColors.grey);
 
+    static final robotoRegular14Black = robotoRegular14.copyWith(color: AppColors.black);
+    static final robotoRegular14White = robotoRegular14.copyWith(color: AppColors.white);
+    static final robotoRegular14Yellow = robotoRegular14.copyWith(color: AppColors.yellow);
+    static final robotoRegular14Grey = robotoRegular14.copyWith(color: AppColors.grey);
+
     static final robotoRegular20Black = robotoRegular20.copyWith(color: AppColors.black);
     static final robotoRegular20White = robotoRegular20.copyWith(color: AppColors.white);
     static final robotoRegular20Yellow = robotoRegular20.copyWith(color: AppColors.yellow);
@@ -58,4 +63,6 @@ class AppStyles {
     static final poppinsRegular16White = poppinsRegular16.copyWith(color: AppColors.white);
     static final poppinsRegular16Yellow = poppinsRegular16.copyWith(color: AppColors.yellow);
     static final poppinsRegular16Grey = poppinsRegular16.copyWith(color: AppColors.grey);
+
+  static var robotoBold14Yellow;
 }

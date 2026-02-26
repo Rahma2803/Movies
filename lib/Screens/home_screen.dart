@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:movies/utitities/app_assets.dart';
 import 'package:movies/utitities/app_colors.dart';
-import 'package:movies/utitities/app_styles.dart';
 import 'package:movies/utitities/conext_extentions.dart';
-import 'package:movies/widgets/custom_carrsoul.dart';
-import 'package:movies/widgets/movie_card.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,15 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body:CustomCarousel(
-          height: 300,
-          items: [
-            MovieCard(imagePath: AppAssets.onBoard1, rating: "7.8"),
-            MovieCard(imagePath: AppAssets.onBoard2, rating: "8.1"),
-            MovieCard(imagePath: AppAssets.onBoard3, rating: "9.0"),
-          ],
-        ), 
+    return Scaffold( 
         bottomNavigationBar: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: context.w * 0.04,

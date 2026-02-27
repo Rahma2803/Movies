@@ -23,6 +23,8 @@ class CustomTextField extends StatelessWidget {
       onChanged: onChanging,
       validator: onValidtator,
       obscureText : obsecureText,
+      style: AppStyles.robotoRegular16White,
+      cursorColor: AppColors.white,
       decoration: InputDecoration( 
         contentPadding: EdgeInsets.symmetric(
           vertical: context.h*0.02,

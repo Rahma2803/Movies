@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 class CustomCarousel extends StatefulWidget {
   final List<Widget> items;
-  final double height;
   final bool autoPlay;
-
+  final VoidCallback onPressed;
   const CustomCarousel({
     super.key,
     required this.items,
-    required this.height,
     this.autoPlay = false,
+    required this.onPressed
   });
 
   @override
@@ -17,31 +16,39 @@ class CustomCarousel extends StatefulWidget {
 }
 
 class _CustomCarouselState extends State<CustomCarousel> {
-  final PageController _controller = PageController(viewportFraction: 0.85);
+  final PageController _controller = PageController(viewportFraction: 0.40);
   int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: PageView.builder(
-        controller: _controller,
-        itemCount: widget.items.length,
-        onPageChanged: (index) {
-          setState(() {
-            currentIndex = index;
-          });
-        },
-        itemBuilder: (context, index) {
-          return AnimatedContainer(
-            duration: const Duration(milliseconds: 300),
-            margin: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: currentIndex == index ? 0 : 12,
+    return PageView.builder(
+      controller: _controller,
+      itemCount: widget.items.length,
+      onPageChanged: (index) {
+        setState(() {
+          currentIndex = index;
+        });
+      },
+      itemBuilder: (context, index) {
+        return AnimatedContainer(
+          duration: const Duration(milliseconds: 300),
+          margin: EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: currentIndex == index ? 10 : 30,
+          ),
+          child: Transform.scale(
+            scale: currentIndex == index  ? 1.0 : 0.85, 
+            child: InkWell(
+              onTap: widget.onPressed,
+              borderRadius: BorderRadius.circular(16),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: widget.items[index],
+              ),
             ),
-            child: widget.items[index],
-          );
-        },
-      ),
+          ),
+        );
+      },
     );
   }
 }

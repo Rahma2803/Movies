@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:movies/utitities/app_assets.dart';
 import 'package:movies/utitities/app_colors.dart';
+import 'package:movies/utitities/app_routes.dart';
 import 'package:movies/utitities/app_styles.dart';
 import 'package:movies/utitities/conext_extentions.dart';
+import 'package:movies/utitities/validation.dart';
 import 'package:movies/widgets/custom_text_field.dart';
 import 'package:movies/widgets/custome_button.dart';
 
-class ForgotPassword extends StatelessWidget {
+class ForgotPassword extends StatefulWidget {
   const ForgotPassword({super.key});
 
   @override
+  State<ForgotPassword> createState() => _ForgotPasswordState();
+}
+
+class _ForgotPasswordState extends State<ForgotPassword> {
+  final TextEditingController emailController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: AppColors.black,
       appBar: AppBar(
@@ -29,13 +39,24 @@ class ForgotPassword extends StatelessWidget {
           spacing: 0.025*context.h,
           children: [
             Image.asset(AppAssets.forgotPassword),
-            CustomTextField(
-              prefix: Icon(Icons.email_rounded , color: AppColors.white),
-                text: "Email"
+            Form(
+              key: _formKey,
+              child: CustomTextField(
+                controller: emailController,
+                onValidtator:(value){
+                 return Validation.emailValidator(value);
+                },
+                prefix: Icon(Icons.email_rounded , color: AppColors.white),
+                  text: "Email"
+              ),
             ),
             CustomeButton(
+
                 text: "Verify Email",
                 onPressed: (){
+                    if (_formKey.currentState!.validate()){
+                      // Navigator.pushReplacementNamed(context, AppRoutes.homeRouteName);
+                    }
 
                 },
                 backgroundColor: AppColors.yellow,

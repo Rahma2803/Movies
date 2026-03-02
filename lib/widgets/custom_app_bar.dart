@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget  implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-       title: Text(text!,style: AppStyles.robotoRegular14Yellow, ),
+       title: Text(text!,style: AppStyles.robotoRegular16Yellow, ),
        centerTitle: true,
        backgroundColor: AppColors.transparent,
        leading: IconButton(

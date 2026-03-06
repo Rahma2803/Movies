@@ -1,5 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/tabs/explore/explore_tab.dart';
+import 'package:movies/tabs/home/home_tab.dart';
+import 'package:movies/tabs/profile/profile_tab.dart';
+import 'package:movies/tabs/search/search_tab.dart';
 import 'package:movies/utitities/app_colors.dart';
 import 'package:movies/utitities/conext_extentions.dart';
 
@@ -22,7 +26,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex=0;
   @override
   Widget build(BuildContext context) {
-    return Scaffold( 
+    return Scaffold(
+      backgroundColor: AppColors.black,
+        body: selectedIndex ==0 ? HomeTab() : selectedIndex == 1 ? SearchTab():selectedIndex == 2 ? ExploreTab(): ProfileTab(),
         bottomNavigationBar: Padding(
               padding: EdgeInsets.symmetric(
                 horizontal: context.w * 0.04,
@@ -49,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     BuildBottomNavBarItem(iconName: Icons.home_rounded, index: 0),
                     BuildBottomNavBarItem(iconName: Icons.search_rounded, index: 1),
                     BuildBottomNavBarItem(iconName: CupertinoIcons.compass, index: 2),
-                    BuildBottomNavBarItem(iconName: Icons.person, index: 3),
+                    BuildBottomNavBarItem(iconName: Icons.person, index: 3,),
                   ],
                 ),
               ),

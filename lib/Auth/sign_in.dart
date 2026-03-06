@@ -26,7 +26,7 @@ class _SignInState extends State<SignIn> {
       backgroundColor: AppColors.black,
       body: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: context.h*0.04, horizontal: context.w*0.08),
+        padding: EdgeInsets.symmetric(vertical: context.h*0.04, horizontal: context.w*0.037),
         child: Column(
           children: [
             Image.asset(AppAssets.logo),
